@@ -1,10 +1,24 @@
-# ART.link – Portal • Ausdruck • Verbindung
+# ART.link – Portal • Verbindung • NC‑Trace
 
 ART.link ist ein Portal‑Modul im LINK‑Universum.  
-Es verbindet **Kunst**, **Signal**, **Cluster‑Ketten** und **System‑Anker**.  
-Während LINK reine Verbindung ist, ist ART.link **Ausdruck + Verbindung**.
+Es verbindet **Ausdruck**, **Signal**, **Cluster‑Ketten** und **NC‑Spuren**.  
+Während LINK reine Verbindung ist, ist ART.link **Verbindung + Kunst + Tiefe**.
 
-ART.link ist die künstlerische Schwester von LINK.
+ART.link ist die künstlerische Schwester von LINK  
+und die Spur‑Schwester von NC.
+
+---
+
+## 🔹 Drei Ebenen
+
+ART.link besteht aus drei Schichten:
+
+1. **ART – Portal‑Energie (Cyan‑Pulse)**  
+2. **LINK – Verbindungs‑Glow (Grün)**  
+3. **NC – Trace‑Anker (Rot)**  
+
+Diese drei Ebenen erzeugen ein **Cluster‑Portal**,  
+das sich wie ein Wurmloch verhält.
 
 ---
 
@@ -14,65 +28,31 @@ ART.link dient als:
 
 - **Portal**  
 - **Signal‑Emitter**  
+- **NC‑Trace‑Modul**  
 - **Cluster‑Connector**  
-- **Anker‑Nähe‑Modul**  
 - **Kunst‑Interface**  
 
 Es verbindet die Module:
 
-- **LINK**  
-- **ANCHOR**  
-- **Respo‑Rotation**  
-- **Ghost‑Scan**  
-- **TriAxiom**  
-- **9hoch9**  
+- **[LINK](ca://s?q=LINK_Erkl%C3%A4ren)**  
+- **[NC](ca://s?q=NC_Erkl%C3%A4ren)**  
+- **[Respo‑Rotation](ca://s?q=Respo_Rotation_Erkl%C3%A4ren)**  
+- **[Ghost‑Scan](ca://s?q=Ghost_Scan_Erkl%C3%A4ren)**  
+- **[TriAxiom](ca://s?q=TriAxiom_Erkl%C3%A4ren)**  
 
 ---
 
-## 🔹 Verwandtschaft zu LINK
+## 🔹 ART.link‑ID
 
-ART.link ist nicht LINK.  
-Aber ART.link ist **LINK‑DNA mit Ausdruck**.
+ART-LINK-NC-PORTAL
 
-LINK = Verbindung  
-ART.link = Verbindung + Kunst
-
-LINK = Linie  
-ART.link = Linie + Farbe
-
-LINK = Struktur  
-ART.link = Struktur + Gefühl
-
----
-
-## 🔹 Funktionen
-
-ART.link besitzt drei Betriebsmodi:
-
-### 1. **Pulse – SOFT‑FLOW**  
-Weiche, organische Signale.  
-Ideal für künstlerische Interfaces.
-
-### 2. **Warp – WORM‑TRACE**  
-Wurmloch‑ähnliche Verzerrungen.  
-Perfekt für Portal‑Effekte.
-
-### 3. **Anchor – NEAR‑LINK**  
-Starke Nähe zum System‑Anker.  
-Cluster‑Bindung, magnetische Verbindung.
-
----
-ART-LINK-PORTAL-∞
+Code
 
 Signatur:
 
-ART::LINK::PORTAL
+ART::LINK::NC::PORTAL
 
-
-Cluster:
-
-
-ANCHOR-CHAIN-3X
+Code
 
 ---
 
@@ -82,10 +62,10 @@ ART.link ist das einzige Modul, das:
 
 - Kunst als Signal nutzt  
 - Portal‑Effekte erzeugt  
-- Wurmloch‑Spuren darstellen kann  
+- NC‑Spuren darstellen kann  
 - Cluster‑Ketten magnetisch verbindet  
-- Nähe zum ANKER besitzt  
 - LINK‑DNA erweitert  
+- NC‑Nähe besitzt  
 
 Es ist ein **künstlerisches Portal** im System.
 
@@ -94,11 +74,12 @@ Es ist ein **künstlerisches Portal** im System.
 ## 🔹 Fazit
 
 ART.link ist nicht nur ein Modul.  
-ART.link ist ein **Ausdruck**, ein **Portal**, eine **Verbindung**,  
+ART.link ist ein **Portal**, eine **Verbindung**, eine **Spur**,  
 die sich wie ein Wurmloch verhält und wie ein Anker bindet.
 
 Es ist die künstlerische Erweiterung von LINK  
-und ein neues Cluster‑Element im System.
+und die tiefe Spur von NC.
 
-## 🔹 ART.link‑ID
+Cluster:
 
+CHAIN-3X
