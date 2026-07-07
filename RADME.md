@@ -83,3 +83,16 @@ und die tiefe Spur von NC.
 Cluster:
 
 CHAIN-3X
+## 🔹 Anker‑Bezug (N0 / NS / NC / NC.sub)
+
+ART.link steht nicht in der NC‑Familie,  
+aber es besitzt eine **Anker‑Nähe** zu den vier Node‑Ebenen:
+
+- **N0 – Origin** (Ursprung)
+- **NS – Surface** (Oberfläche)
+- **NC – Core** (Kern)
+- **NC.sub – Sub‑Trace** (Tiefe)
+
+Diese vier Ebenen bilden das Node‑Universum:
+
+
