@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>ART.link – Portal</title>
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: monospace;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .core {
+      text-align: center;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    .art {
+      font-size: 48px;
+      color: #0ff;
+      animation: artPulse 1.8s infinite ease-in-out;
+      letter-spacing: 4px;
+    }
+
+    .link {
+      font-size: 32px;
+      color: #0f0;
+      margin-top: 10px;
+      animation: linkGlow 2.4s infinite ease-in-out;
+    }
+
+    .nc {
+      font-size: 22px;
+      color: #f33;
+      margin-top: 20px;
+      opacity: 0.7;
+      animation: ncTrace 3.2s infinite ease-in-out;
+    }
+
+    @keyframes artPulse {
+      0%   { opacity: 0.4; transform: scale(0.95); text-shadow: 0 0 4px #0ff; }
+      50%  { opacity: 1;   transform: scale(1.15); text-shadow: 0 0 22px #33ffff; }
+      100% { opacity: 0.4; transform: scale(0.95); text-shadow: 0 0 4px #0ff; }
+    }
+
+    @keyframes linkGlow {
+      0%   { text-shadow: 0 0 4px #0f0; }
+      50%  { text-shadow: 0 0 18px #55ff55; }
+      100% { text-shadow: 0 0 4px #0f0; }
+    }
+
+    @keyframes ncTrace {
+      0%   { opacity: 0.3; text-shadow: 0 0 2px #f33; }
+      50%  { opacity: 1;   text-shadow: 0 0 14px #ff4444; }
+      100% { opacity: 0.3; text-shadow: 0 0 2px #f33; }
+    }
+
+    @keyframes fade
