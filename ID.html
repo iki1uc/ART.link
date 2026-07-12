@@ -1,8 +1,71 @@
-const N0_ID = {
-    id: "N0-ORIGIN-ROOT",
-    layer: "ORIGIN",
-    relation: "NC-FAMILY",
-    signature: "N0::NS::NC::SUB",
-    cluster: "ROOT-CHAIN-0X",
-    role: "PRE-LAYER"
-};
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>ART.link · ID‑System (6e/6d)</title>
+
+<style>
+body { background:#000; color:#0ff; font-family:Consolas, monospace; padding:20px; }
+h1 { color:#6cf; }
+table { width:100%; border-collapse:collapse; margin-top:20px; }
+th, td { border:1px solid #333; padding:8px; }
+th { background:#111; }
+.depth-0 { color:#0f0; }
+.depth-1 { color:#ff0; }
+.depth-2 { color:#f33; }
+.sig { opacity:0.7; font-size:12px; }
+</style>
+
+<script type="module">
+async function loadID() {
+  const out = document.getElementById("id-table");
+  const status = document.getElementById("status");
+
+  try {
+    const res = await fetch("ID.json");
+    if (!res.ok) throw new Error("ID.json fehlt");
+    const data = await res.json();
+
+    status.textContent = "ID‑System geladen.";
+
+    Object.keys(data).forEach(key => {
+      const id = data[key];
+      const row = document.createElement("tr");
+      row.className = `depth-${id.depth}`;
+
+      row.innerHTML = `
+        <td>${key}</td>
+        <td>${id.layer}</td>
+        <td>${id.cluster}</td>
+        <td>${id.depth}</td>
+        <td class="sig">${id.signature}</td>
+      `;
+      out.appendChild(row);
+    });
+
+  } catch (e) {
+    status.textContent = "Fehler: " + e.message;
+    out.innerHTML = "<tr><td colspan='5'>Keine Daten.</td></tr>";
+  }
+}
+
+window.addEventListener("DOMContentLoaded", loadID);
+</script>
+
+</head>
+<body>
+
+<h1>ART.link · ID‑System (6e/6d)</h1>
+<div id="status">Lade ID‑System…</div>
+
+<table>
+<thead>
+<tr>
+  <th>ID</th><th>Layer</th><th>Cluster</th><th>Depth</th><th>Signature</th>
+</tr>
+</thead>
+<tbody id="id-table"></tbody>
+</table>
+
+</body>
+</html>
