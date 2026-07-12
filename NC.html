@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>ART.link · NC‑Engine (6d)</title>
+
+<style>
+body { background:#000; color:#fff; font-family:Consolas; padding:20px; }
+h1 { color:#f33; }
+.node { padding:10px; border:1px solid #333; margin:10px 0; }
+.depth-0 { color:#0f0; }
+.depth-1 { color:#ff0; }
+.depth-2 { color:#f33; }
+</style>
+
+<script type="module">
+async function loadNC() {
+  const out = document.getElementById("nc-out");
+
+  try {
+    const res = await fetch("NC.json");
+    if (!res.ok) throw new Error("NC.json fehlt");
+    const data = await res.json();
+
+    Object.keys(data).forEach(key => {
+      const n = data[key];
+      const div = document.createElement("div");
+      div.className = `node depth-${n.depth}`;
+      div.innerHTML = `
+        <b>${key}</b><br>
+        Orbit: ${n.orbit}<br>
+        Cluster: ${n.cluster}<br>
+        Depth: ${n.depth}
+      `;
+      out.appendChild(div);
+    });
+
+  } catch (e) {
+    out.innerHTML = "Fehler: " + e.message;
+  }
+}
+
+window.addEventListener("DOMContentLoaded", loadNC);
+</script>
+
+</head>
+<body>
+
+<h1>NC‑Engine (6d)</h1>
+<div id="nc-out"></div>
+
+</body>
+</html>
