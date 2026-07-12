@@ -1,0 +1,20 @@
+{
+  "N0": {
+    "layer": "ORIGIN",
+    "cluster": "ROOT-CHAIN-0X",
+    "depth": 0,
+    "signature": "N0::NS::NC::SUB"
+  },
+  "N1": {
+    "layer": "NC",
+    "cluster": "CHAIN-1",
+    "depth": 1,
+    "signature": "N1::NC::SUB"
+  },
+  "N2": {
+    "layer": "NC",
+    "cluster": "CHAIN-2",
+    "depth": 2,
+    "signature": "N2::NC::SUB"
+  }
+}
