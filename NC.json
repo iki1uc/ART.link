@@ -1,0 +1,5 @@
+{
+  "NC0": { "orbit": "ROOT", "cluster": "CHAIN-0", "depth": 0 },
+  "NC1": { "orbit": "UP", "cluster": "CHAIN-1", "depth": 1 },
+  "NC2": { "orbit": "SET", "cluster": "CHAIN-2", "depth": 2 }
+}
