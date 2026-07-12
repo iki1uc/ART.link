@@ -17,21 +17,13 @@ body { background:#000; color:#fff; font-family:Consolas; text-align:center; pad
 </style>
 
 <script type="module">
-async function loadPortal() {
+import { loadID } from "./engine/id-engine.js";
+
+window.addEventListener("DOMContentLoaded", async () => {
   const status = document.getElementById("status");
-
-  try {
-    const res = await fetch("ID.json");
-    if (!res.ok) throw new Error("ID.json fehlt");
-    const data = await res.json();
-
-    status.textContent = "Portal aktiv · " + Object.keys(data).length + " ID‑Nodes geladen.";
-  } catch (e) {
-    status.textContent = "Fehler: " + e.message;
-  }
-}
-
-window.addEventListener("DOMContentLoaded", loadPortal);
+  const count = await loadID();
+  status.textContent = "Portal aktiv · " + count + " ID‑Nodes geladen.";
+});
 </script>
 
 </head>
