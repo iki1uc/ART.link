@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>ART.link · Orbit‑Map (6e/6d)</title>
+
+<style>
+body { background:#000; color:#fff; font-family:Consolas; padding:20px; }
+h1 { color:#0ff; }
+.map { margin-top:20px; }
+.step { padding:10px; border-left:4px solid #0ff; margin:10px 0; }
+</style>
+
+<script type="module">
+async function loadOrbit() {
+  const out = document.getElementById("orbit-map");
+
+  try {
+    const res = await fetch("orbit.json");
+    if (!res.ok) throw new Error("orbit.json fehlt");
+    const data = await res.json();
+
+    data.path.forEach(step => {
+      const div = document.createElement("div");
+      div.className = "step";
+      div.textContent = step;
+      out.appendChild(div);
+    });
+
+  } catch (e) {
+    out.innerHTML = "Fehler: " + e.message;
+  }
+}
+
+window.addEventListener("DOMContentLoaded", loadOrbit);
+</script>
+
+</head>
+<body>
+
+<h1>Orbit‑Map (6e/6d)</h1>
+<div id="orbit-map" class="map"></div>
+
+</body>
+</html>
