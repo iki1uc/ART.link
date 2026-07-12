@@ -12,27 +12,8 @@ h1 { color:#0ff; }
 </style>
 
 <script type="module">
-async function loadOrbit() {
-  const out = document.getElementById("orbit-map");
-
-  try {
-    const res = await fetch("orbit.json");
-    if (!res.ok) throw new Error("orbit.json fehlt");
-    const data = await res.json();
-
-    data.path.forEach(step => {
-      const div = document.createElement("div");
-      div.className = "step";
-      div.textContent = step;
-      out.appendChild(div);
-    });
-
-  } catch (e) {
-    out.innerHTML = "Fehler: " + e.message;
-  }
-}
-
-window.addEventListener("DOMContentLoaded", loadOrbit);
+import { renderOrbit } from "./engine/orbit-engine.js";
+window.addEventListener("DOMContentLoaded", renderOrbit);
 </script>
 
 </head>
