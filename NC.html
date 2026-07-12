@@ -14,33 +14,8 @@ h1 { color:#f33; }
 </style>
 
 <script type="module">
-async function loadNC() {
-  const out = document.getElementById("nc-out");
-
-  try {
-    const res = await fetch("NC.json");
-    if (!res.ok) throw new Error("NC.json fehlt");
-    const data = await res.json();
-
-    Object.keys(data).forEach(key => {
-      const n = data[key];
-      const div = document.createElement("div");
-      div.className = `node depth-${n.depth}`;
-      div.innerHTML = `
-        <b>${key}</b><br>
-        Orbit: ${n.orbit}<br>
-        Cluster: ${n.cluster}<br>
-        Depth: ${n.depth}
-      `;
-      out.appendChild(div);
-    });
-
-  } catch (e) {
-    out.innerHTML = "Fehler: " + e.message;
-  }
-}
-
-window.addEventListener("DOMContentLoaded", loadNC);
+import { renderNC } from "./engine/nc-engine.js";
+window.addEventListener("DOMContentLoaded", renderNC);
 </script>
 
 </head>
