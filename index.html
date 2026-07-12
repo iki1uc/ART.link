@@ -1,63 +1,45 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <title>ART.link – Portal</title>
-  <style>
-    body {
-      background: #000;
-      color: #fff;
-      font-family: monospace;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      overflow: hidden;
-    }
+<meta charset="UTF-8">
+<title>ART.link · Portal (6e)</title>
 
-    .core {
-      text-align: center;
-      animation: fadeIn 1.2s ease forwards;
-    }
+<style>
+body { background:#000; color:#fff; font-family:Consolas; text-align:center; padding-top:20vh; }
+.art { font-size:60px; color:#0ff; animation:pulse 2s infinite; }
+.link { font-size:40px; color:#0f0; margin-top:10px; }
+.status { margin-top:20px; color:#ff0; }
+@keyframes pulse {
+  0% { opacity:0.4; transform:scale(0.9); }
+  50% { opacity:1; transform:scale(1.2); }
+  100% { opacity:0.4; transform:scale(0.9); }
+}
+</style>
 
-    .art {
-      font-size: 48px;
-      color: #0ff;
-      animation: artPulse 1.8s infinite ease-in-out;
-      letter-spacing: 4px;
-    }
+<script type="module">
+async function loadPortal() {
+  const status = document.getElementById("status");
 
-    .link {
-      font-size: 32px;
-      color: #0f0;
-      margin-top: 10px;
-      animation: linkGlow 2.4s infinite ease-in-out;
-    }
+  try {
+    const res = await fetch("ID.json");
+    if (!res.ok) throw new Error("ID.json fehlt");
+    const data = await res.json();
 
-    .nc {
-      font-size: 22px;
-      color: #f33;
-      margin-top: 20px;
-      opacity: 0.7;
-      animation: ncTrace 3.2s infinite ease-in-out;
-    }
+    status.textContent = "Portal aktiv · " + Object.keys(data).length + " ID‑Nodes geladen.";
+  } catch (e) {
+    status.textContent = "Fehler: " + e.message;
+  }
+}
 
-    @keyframes artPulse {
-      0%   { opacity: 0.4; transform: scale(0.95); text-shadow: 0 0 4px #0ff; }
-      50%  { opacity: 1;   transform: scale(1.15); text-shadow: 0 0 22px #33ffff; }
-      100% { opacity: 0.4; transform: scale(0.95); text-shadow: 0 0 4px #0ff; }
-    }
+window.addEventListener("DOMContentLoaded", loadPortal);
+</script>
 
-    @keyframes linkGlow {
-      0%   { text-shadow: 0 0 4px #0f0; }
-      50%  { text-shadow: 0 0 18px #55ff55; }
-      100% { text-shadow: 0 0 4px #0f0; }
-    }
+</head>
+<body>
 
-    @keyframes ncTrace {
-      0%   { opacity: 0.3; text-shadow: 0 0 2px #f33; }
-      50%  { opacity: 1;   text-shadow: 0 0 14px #ff4444; }
-      100% { opacity: 0.3; text-shadow: 0 0 2px #f33; }
-    }
+<div class="art">ART</div>
+<div class="link">link</div>
+<div id="status" class="status">Lade Portal…</div>
 
-    @keyframes fade
+</body>
+</html>
