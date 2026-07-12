@@ -5,7 +5,7 @@
 <title>ART.link · ID‑System (6e/6d)</title>
 
 <style>
-body { background:#000; color:#0ff; font-family:Consolas, monospace; padding:20px; }
+body { background:#000; color:#0ff; font-family:Consolas; padding:20px; }
 h1 { color:#6cf; }
 table { width:100%; border-collapse:collapse; margin-top:20px; }
 th, td { border:1px solid #333; padding:8px; }
@@ -17,39 +17,8 @@ th { background:#111; }
 </style>
 
 <script type="module">
-async function loadID() {
-  const out = document.getElementById("id-table");
-  const status = document.getElementById("status");
-
-  try {
-    const res = await fetch("ID.json");
-    if (!res.ok) throw new Error("ID.json fehlt");
-    const data = await res.json();
-
-    status.textContent = "ID‑System geladen.";
-
-    Object.keys(data).forEach(key => {
-      const id = data[key];
-      const row = document.createElement("tr");
-      row.className = `depth-${id.depth}`;
-
-      row.innerHTML = `
-        <td>${key}</td>
-        <td>${id.layer}</td>
-        <td>${id.cluster}</td>
-        <td>${id.depth}</td>
-        <td class="sig">${id.signature}</td>
-      `;
-      out.appendChild(row);
-    });
-
-  } catch (e) {
-    status.textContent = "Fehler: " + e.message;
-    out.innerHTML = "<tr><td colspan='5'>Keine Daten.</td></tr>";
-  }
-}
-
-window.addEventListener("DOMContentLoaded", loadID);
+import { renderID } from "./engine/id-engine.js";
+window.addEventListener("DOMContentLoaded", renderID);
 </script>
 
 </head>
