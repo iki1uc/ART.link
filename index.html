@@ -2,36 +2,36 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>ART.link · Portal (6e)</title>
-
+<title>ART.link – Visual Mapping</title>
 <style>
-body { background:#000; color:#fff; font-family:Consolas; text-align:center; padding-top:20vh; }
-.art { font-size:60px; color:#0ff; animation:pulse 2s infinite; }
-.link { font-size:40px; color:#0f0; margin-top:10px; }
-.status { margin-top:20px; color:#ff0; }
-@keyframes pulse {
-  0% { opacity:0.4; transform:scale(0.9); }
-  50% { opacity:1; transform:scale(1.2); }
-  100% { opacity:0.4; transform:scale(0.9); }
-}
+  body { background:#111; color:#eee; font-family:Arial; padding:40px; }
+  .box { background:#222; border:1px solid #444; padding:20px; margin-bottom:20px; }
+  h1 { text-align:center; color:#88ffcc; }
 </style>
-
-<script type="module">
-import { loadID } from "./engine/id-engine.js";
-
-window.addEventListener("DOMContentLoaded", async () => {
-  const status = document.getElementById("status");
-  const count = await loadID();
-  status.textContent = "Portal aktiv · " + count + " ID‑Nodes geladen.";
-});
-</script>
-
 </head>
+
 <body>
 
-<div class="art">ART</div>
-<div class="link">link</div>
-<div id="status" class="status">Lade Portal…</div>
+<h1>ART.link – Visual / Mapping</h1>
+
+<div class="box">
+  <h2>Geometrie: Hexagon</h2>
+  <p>ART.link nutzt die 6‑Ecken‑Geometrie für Visual‑Mapping.</p>
+</div>
+
+<div class="box">
+  <h2>Frequenz: 528 Hz</h2>
+  <p>Die Visual‑Heilfrequenz für klare Darstellung.</p>
+</div>
+
+<div class="box">
+  <h2>Visual‑Matrix</h2>
+  <pre>
+● ● ●
+● ● ●
+Hexagon = Visualkörper
+  </pre>
+</div>
 
 </body>
 </html>
