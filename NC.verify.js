@@ -1,9 +1,11 @@
 import NC from "./NC.json" assert { type:"json" };
+import RULES from "./NC.verify.json" assert { type:"json" };
 import ORBIT from "./orbit.json" assert { type:"json" };
+
 import { syncOrbit } from "./sync-engine.js";
 import { CoreChainConnector } from "./core-chain-engine.js";
-import { AutoGenerator } from "./generator-engine.js";
 import { BridgeNC2Connector } from "./bridge-engine.js";
+import { AutoGenerator } from "./generator-engine.js";
 
 const panel = document.getElementById("verifyPanel");
 
@@ -14,33 +16,29 @@ function verifyNC() {
 
     const chain = CoreChainConnector();
     BridgeNC2Connector();
-
-    const orbitStatus = ORBIT.paths.length > 0 ? "OK" : "NEIN";
+    AutoGenerator();
 
     const errors = [];
 
-    // NC² Sync Checks
-    if (!sync.axis) errors.push("Sync.axis fehlt");
-    if (!sync.dual) errors.push("Sync.dual fehlt");
-    if (!sync.merge) errors.push("Sync.merge fehlt");
+    // --- Regeln aus NC.verify.json anwenden ---
+    if (RULES.rules.requireSyncAxis && !sync.axis) errors.push("Sync.axis fehlt");
+    if (RULES.rules.requireSyncDual && !sync.dual) errors.push("Sync.dual fehlt");
+    if (RULES.rules.requireSyncMerge && !sync.merge) errors.push("Sync.merge fehlt");
 
-    // NC² Align Checks
-    if (!align.axis_nc2) errors.push("Align.axis_nc2 fehlt");
-    if (!align.axis_octa) errors.push("Align.axis_octa fehlt");
+    if (RULES.rules.requireAlignNC2 && !align.axis_nc2) errors.push("Align.axis_nc2 fehlt");
+    if (RULES.rules.requireAlignOcta && !align.axis_octa) errors.push("Align.axis_octa fehlt");
 
-    // Pulse / Error
     if (sync.error) errors.push("NC² ERROR aktiv");
 
-    // Orbit
-    if (ORBIT.paths.length === 0) errors.push("Orbit‑Heatmap leer");
+    if (RULES.rules.requireOrbitPaths && ORBIT.paths.length === 0)
+        errors.push("Orbit‑Heatmap leer");
 
-    // Core‑Chain
-    if (!chain.id) errors.push("Core‑Chain: ID fehlt");
-    if (!chain.nc) errors.push("Core‑Chain: NC fehlt");
+    if (RULES.rules.requireCoreChain) {
+        if (!chain.id) errors.push("Core‑Chain: ID fehlt");
+        if (!chain.nc) errors.push("Core‑Chain: NC fehlt");
+    }
 
-    // Generator
-    AutoGenerator();
-
+    // --- Ausgabe ---
     panel.innerHTML = `
 <b>NC² Sync</b>
 Axis: ${sync.axis}
@@ -56,7 +54,7 @@ Align Core: ${align.align}
 
 <b>Orbit</b>
 Tiles: ${ORBIT.paths.length}
-Status: ${orbitStatus}
+Status: ${ORBIT.paths.length > 0 ? "OK" : "NEIN"}
 
 <b>Core‑Chain</b>
 ID: ${chain.id}
