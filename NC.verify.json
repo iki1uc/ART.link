@@ -1,0 +1,11 @@
+{
+    "rules": {
+        "requireSyncAxis": true,
+        "requireSyncDual": true,
+        "requireSyncMerge": true,
+        "requireAlignNC2": true,
+        "requireAlignOcta": true,
+        "requireOrbitPaths": true,
+        "requireCoreChain": true
+    }
+}
