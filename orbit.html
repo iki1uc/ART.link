@@ -1,26 +1,21 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-<meta charset="UTF-8">
-<title>ART.link · Orbit‑Map (6e/6d)</title>
-
-<style>
-body { background:#000; color:#fff; font-family:Consolas; padding:20px; }
-h1 { color:#0ff; }
-.map { margin-top:20px; }
-.step { padding:10px; border-left:4px solid #0ff; margin:10px 0; }
-</style>
-
 <script type="module">
-import { renderOrbit } from "./engine/orbit-engine.js";
-window.addEventListener("DOMContentLoaded", renderOrbit);
+import { initOrbitHeatmap } from "./orbit-engine.js";
+import { syncOrbit } from "./sync-engine.js";
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+camera.position.z = 6;
+
+initOrbitHeatmap(scene);
+
+setInterval(syncOrbit, 200);
+
+function animate(){
+    requestAnimationFrame(animate);
+    renderer.render(scene, camera);
+}
+animate();
 </script>
-
-</head>
-<body>
-
-<h1>Orbit‑Map (6e/6d)</h1>
-<div id="orbit-map" class="map"></div>
-
-</body>
-</html>
