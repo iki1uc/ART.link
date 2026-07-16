@@ -1,19 +1,21 @@
-export async function syncOrbit() {
-  const out = document.getElementById("sync");
+// ------------------------------------------------------
+// NC² → ORBIT CONNECTOR
+// ------------------------------------------------------
 
-  const sync = [
-    "Orbit: ART.link → TriAxiom",
-    "Orbit: TriAxiom → RAW‑SYS‑IKI‑AXI‑ATOR",
-    "Orbit: RAW‑SYS‑IKI‑AXI‑ATOR → LOGIK‑ATOR‑SYS‑AXI",
-    "Orbit: LOGIK‑ATOR‑SYS‑AXI → RESPO",
-    "Orbit: RESPO → NC",
-    "Orbit: NC → ART.link 7a"
-  ];
+import { orbitUpdateHeatmap } from "./orbit-engine.js";
+import ncData from "./NC.json" assert { type: "json" };
 
-  sync.forEach(step => {
-    const div = document.createElement("div");
-    div.className = "item";
-    div.textContent = step;
-    out.appendChild(div);
-  });
+export function syncOrbit() {
+
+    const axisNC2 = ncData.align.axis_nc2;     // □
+    const axisOcta = ncData.align.axis_octa;   // octa³
+    const pulse = ncData.align.pulse;          // NC² Pulse
+    const error = ncData.align.error;          // NC² Error
+
+    orbitUpdateHeatmap({
+        axisNC2,
+        axisOcta,
+        pulse,
+        error
+    });
 }
