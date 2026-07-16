@@ -2,36 +2,69 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>ART.link – Visual Mapping</title>
+<title>ART.link – iki1uc</title>
+
 <style>
-  body { background:#111; color:#eee; font-family:Arial; padding:40px; }
-  .box { background:#222; border:1px solid #444; padding:20px; margin-bottom:20px; }
-  h1 { text-align:center; color:#88ffcc; }
+body { background:#000; color:#0f0; font-family:monospace; padding:40px; }
+h1 { color:#0f0; letter-spacing:4px; margin-bottom:30px; }
+.block { background:#111; border:1px solid #333; padding:25px; margin-bottom:30px; border-radius:8px; }
+.title { font-size:22px; color:#6cf; margin-bottom:10px; }
+a { color:#6cf; text-decoration:none; font-weight:bold; display:block; margin:5px 0; }
+pre { background:#000; border-left:3px solid #6cf; padding:15px; white-space:pre-wrap; }
 </style>
 </head>
 
 <body>
 
-<h1>ART.link – Visual / Mapping</h1>
+<h1>ART.link – iki1uc</h1>
 
-<div class="box">
-  <h2>Geometrie: Hexagon</h2>
-  <p>ART.link nutzt die 6‑Ecken‑Geometrie für Visual‑Mapping.</p>
+<div class="block">
+    <div class="title">Module</div>
+    <a href="ID.html">ID‑System</a>
+    <a href="NC.html">NC²‑System</a>
+    <a href="orbit.html">Orbit‑Heatmap</a>
+    <a href="bridge.html">Bridge‑Engine</a>
+    <a href="core-chain.html">Core‑Chain</a>
+    <a href="generator.html">Generator</a>
+    <a href="respo-linker.html">Respo‑Linker</a>
+    <a href="sync.html">Sync‑Monitor</a>
 </div>
 
-<div class="box">
-  <h2>Frequenz: 528 Hz</h2>
-  <p>Die Visual‑Heilfrequenz für klare Darstellung.</p>
+<div class="block">
+    <div class="title">System‑Status</div>
+    <pre id="sysStatus">Lade…</pre>
 </div>
 
-<div class="box">
-  <h2>Visual‑Matrix</h2>
-  <pre>
-● ● ●
-● ● ●
-Hexagon = Visualkörper
-  </pre>
-</div>
+<script type="module">
+import ID from "./ID.json" assert { type:"json" };
+import NC from "./NC.json" assert { type:"json" };
+import ORBIT from "./orbit.json" assert { type:"json" };
+
+import { syncOrbit } from "./sync-engine.js";
+import { orbitUpdateHeatmap } from "./orbit-engine.js";
+
+function updateStatus() {
+    const s = document.getElementById("sysStatus");
+
+    s.innerHTML =
+        "ID: " + (ID ? "OK" : "NEIN") + "\n" +
+        "NC²: " + (NC ? "OK" : "NEIN") + "\n" +
+        "Orbit: " + (ORBIT ? "OK" : "NEIN") + "\n" +
+        "Sync‑Engine: OK\n" +
+        "Orbit‑Engine: OK\n" +
+        "Bridge‑Engine: OK\n" +
+        "Core‑Chain‑Engine: OK\n" +
+        "Generator‑Engine: OK\n";
+}
+
+setInterval(updateStatus, 500);
+
+// NC² → Orbit koppeln
+setInterval(() => {
+    syncOrbit(); // ruft orbitUpdateHeatmap() intern auf
+}, 300);
+
+</script>
 
 </body>
 </html>
